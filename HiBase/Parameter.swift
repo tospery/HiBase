@@ -20,6 +20,7 @@ public struct Parameter {
     public static let mode                  = "mode"
     public static let page                  = "page"
     public static let home                  = "home"
+    public static let toast                 = "toast"
     public static let query                 = "query"
     public static let login                 = "login"
     public static let value                 = "value"
