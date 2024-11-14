@@ -10,9 +10,11 @@ import Foundation
 public protocol ServiceProvider { }
 public protocol ProviderProtocol { }
 
-public enum Localization: String, Codable {
+public enum Localization: String, Codable, Identifiable, CaseIterable {
     case chinese    = "zh-Hans"
     case english    = "en"
+    
+    public var id: String { self.rawValue }
     
     public static let allValues = [chinese, english]
     
