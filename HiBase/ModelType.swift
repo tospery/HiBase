@@ -28,6 +28,8 @@ public extension ModelType {
         return false
     }
     
+    public var id: String { "" }
+    
     var description: String { self.toJSONString() ?? self.id.hashValue.string }
     
     var debugDescription: String { self.toJSONString() ?? self.id.hashValue.string }
@@ -48,20 +50,23 @@ public protocol ProfileType: ModelType {
 }
 
 public struct WrappedModel: ModelType {
-
-    public var id = 0
-    public var data: Any?
     
-    public var isValid: Bool { self.data != nil }
+    public var data: Any
+    
+    public var id: String { self.description }
+    
+    public var isValid: Bool { true }
     
     public init() {
+        self.data = 0
     }
     
-    public init(_ data: Any? = nil) {
+    public init(_ data: Any) {
         self.data = data
     }
     
     public init?(map: Map) {
+        self.data = 0
     }
     
     public mutating func mapping(map: Map) {
@@ -77,12 +82,12 @@ public struct WrappedModel: ModelType {
     }
 
     enum CodingKeys: String, CodingKey {
-        case id, data
+        case data
     }
     
-    public func encode(to encoder: Encoder) throws { }
+    public func encode(to encoder: Encoder) throws { throw MappingError.unknownType }
 
-    public init(from decoder: Decoder) throws { }
+     public init(from decoder: Decoder) throws { throw MappingError.unknownType }
     
 }
 
