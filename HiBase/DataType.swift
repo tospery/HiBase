@@ -17,8 +17,6 @@ public enum Localization: String, Codable, Identifiable, CaseIterable {
     public var id: String { self.rawValue }
     public var locale: Locale { .init(identifier: self.rawValue) }
     public var preferredLanguages: [String] { [self.rawValue] }
-    
-    public static let allValues = [chinese, english]
 }
 
 public enum MappingError: Error {
