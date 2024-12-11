@@ -36,6 +36,12 @@ public extension ModelType {
     
     static func == (lhs: Self, rhs: Self) -> Bool { lhs.id == rhs.id }
 
+    public func isEqual(to other: any ModelType) -> Bool {
+        guard let otherModel = other as? Self else {
+            return false
+        }
+        return self == otherModel
+    }
 }
 
 public protocol UserType: ModelType {
@@ -47,6 +53,24 @@ public protocol UserType: ModelType {
 public protocol ProfileType: ModelType {
     var localization: Localization? { get set }
     var loginedUser: (any UserType)? { get set }
+}
+
+public struct AnyModel: Identifiable, Equatable {
+    
+    public let base: any ModelType
+
+    public var id: String { base.id }
+    
+    public init<Model: ModelType>(_ base: Model) {
+        self.base = base
+    }
+
+    public static func == (lhs: AnyModel, rhs: AnyModel) -> Bool {
+        guard type(of: lhs.base) == type(of: rhs.base) else {
+            return false
+        }
+        return lhs.base.isEqual(to: rhs.base)
+    }
 }
 
 public struct WrappedModel: ModelType {
