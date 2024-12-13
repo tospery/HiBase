@@ -1,5 +1,5 @@
 //
-//  ImmutableMappable+Domain.swift
+//  Mappable+Base.swift
 //  HiBase
 //
 //  Created by 杨建祥 on 2024/5/20.
@@ -9,7 +9,7 @@ import Foundation
 import ObjectMapper
 
 // ******************************* MARK: - From data
-public extension ImmutableMappable {
+public extension Mappable {
     
     /// Creates model from JSON string.
     /// - parameter jsonData: Data in JSON format to use for model creation.
@@ -32,14 +32,16 @@ public extension ImmutableMappable {
         }
         
         guard let jsonObject = jsonData.safeSerializeToJSON() else {
-            throw MappingError.invalidJSON(message: "Unable to serialize JSON object from the data")
+            throw MappingError.invalidJSON(message: "Unable to serialize JSON array from the data")
         }
         
         guard let jsonDictionary = jsonObject as? [String: Any] else {
             throw MappingError.unknownType
         }
         
-        let model = try Self(JSON: jsonDictionary)
+        guard let model = Self(JSON: jsonDictionary) else {
+            throw MappingError.unknownType
+        }
         
         return model
     }
@@ -57,13 +59,13 @@ public extension ImmutableMappable {
 }
 
 // ******************************* MARK: - From string
-public extension ImmutableMappable {
+public extension Mappable {
     
     /// Creates model from JSON string.
     /// - parameter jsonString: String in JSON format to use for model creation.
     /// - throws: `MappingError.emptyData` if response data is empty.
     /// - throws: `MappingError.invalidJSON` if response isn't a valid JSON.
-    /// - throws: Any other error that model may emmit during initialization.
+    /// - throws: `MappingError.unknownType` if it wasn't possible to create model.
     static func create(jsonString: String?) throws -> Self {
         guard let jsonString = jsonString else {
             throw MappingError.emptyData
@@ -83,7 +85,9 @@ public extension ImmutableMappable {
             throw MappingError.invalidJSON(message: "JSON object should end with the '}' character")
         }
         
-        let model = try Self(JSONString: jsonString)
+        guard let model = Self(JSONString: jsonString) else {
+            throw MappingError.unknownType
+        }
         
         return model
     }

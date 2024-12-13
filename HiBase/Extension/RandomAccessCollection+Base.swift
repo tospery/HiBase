@@ -1,5 +1,5 @@
 //
-//  RandomAccessCollection+Domain.swift
+//  RandomAccessCollection+Base.swift
 //  HiBase
 //
 //  Created by 杨建祥 on 2024/5/20.
