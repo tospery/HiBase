@@ -84,4 +84,9 @@ public extension String {
         }
     }
     
+    var emailLink: String {
+        guard isValidEmail else { return self }
+        return "mailto:\(self)"
+    }
+    
 }
