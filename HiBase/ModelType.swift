@@ -28,11 +28,9 @@ public extension ModelType {
         return false
     }
     
-    public var id: String { "" }
+    var description: String { self.toJSONString() ?? tryString(self.id) ?? "" }
     
-    var description: String { self.toJSONString() ?? self.id.hashValue.string }
-    
-    var debugDescription: String { self.toJSONString() ?? self.id.hashValue.string }
+    var debugDescription: String { self.toJSONString() ?? tryString(self.id) ?? "" }
     
     static func == (lhs: Self, rhs: Self) -> Bool { lhs.id == rhs.id }
 
@@ -59,7 +57,7 @@ public struct AnyModel: Identifiable, Equatable {
     
     public let base: any ModelType
 
-    public var id: String { base.id }
+    public var id: String { tryString(base.id) ?? "" }
     
     public init<Model: ModelType>(_ base: Model) {
         self.base = base
