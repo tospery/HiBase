@@ -10,6 +10,7 @@ import Foundation
 public struct Parameter {
 
     public static let id                    = "id"
+    public static let app                   = "app"
     public static let key                   = "key"
     public static let url                   = "url"
     public static let mac                   = "mac"
@@ -36,6 +37,7 @@ public struct Parameter {
     public static let active                = "active"
     public static let models                = "models"
     public static let portal                = "portal"
+    public static let preset                = "preset"
     public static let isDark                = "isDark"
     public static let isList                = "isList"
     public static let userid                = "userid"
