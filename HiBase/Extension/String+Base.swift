@@ -6,12 +6,15 @@
 //
 
 import Foundation
+import SwiftUI
 
 // ******************************* MARK: - Checks
 private let kSpaceCharacter = Character(" ")
 private let kNewLineCharacter = Character("\n")
 
 public extension String {
+    
+    var localizedStringKey: LocalizedStringKey { .init(self) }
     
     var isNil: Bool { isEmpty || self == "-" }
     
