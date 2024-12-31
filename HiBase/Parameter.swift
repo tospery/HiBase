@@ -42,6 +42,7 @@ public struct Parameter {
     public static let preset                = "preset"
     public static let isDark                = "isDark"
     public static let isList                = "isList"
+    public static let avatar                = "avatar"
     public static let userid                = "userid"
     public static let fromWeb               = "fromWeb"
     public static let channel               = "channel"
