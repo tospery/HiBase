@@ -20,7 +20,7 @@ public extension Bundle {
     var baseApiUrl: String {
         var base = tryString(appHosts["api"]) ?? ""
         if base.isEmpty {
-            base = "https://api.\(self.appScheme() ?? "app").com"
+            base = "https://api.\(self.urlScheme() ?? "app").com"
         }
         return base
     }
@@ -28,7 +28,7 @@ public extension Bundle {
     var baseWebUrl: String {
         var base = tryString(appHosts["web"]) ?? ""
         if base.isEmpty {
-            base = "https://\(self.appScheme() ?? "app").com"
+            base = "https://\(self.urlScheme() ?? "app").com"
         }
         return base
     }
@@ -56,7 +56,7 @@ public extension Bundle {
         return ""
     }
 
-    func appScheme(name: String = "app") -> String? {
+    func urlScheme(name: String = "app") -> String? {
         var scheme: String? = nil
         if let types = Bundle.main.infoDictionary?["CFBundleURLTypes"] as? Array<Dictionary<String, Any>> {
             for info in types {
