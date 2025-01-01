@@ -33,6 +33,14 @@ public extension Bundle {
         return base
     }
     
+    var baseUnivLink: String {
+        var base = tryString(appHosts["univ"]) ?? ""
+        if base.isEmpty {
+            base = "https://\(self.urlScheme() ?? "app").com"
+        }
+        return base
+    }
+    
     var team: String {
         let query = [
             kSecClass as NSString: kSecClassGenericPassword as NSString,
