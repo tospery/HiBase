@@ -15,6 +15,7 @@ public struct Parameter {
     public static let url                   = "url"
     public static let mac                   = "mac"
     public static let web                   = "web"
+    public static let desc                  = "desc"
     public static let data                  = "data"
     public static let code                  = "code"
     public static let type                  = "type"
