@@ -9,7 +9,7 @@ import Foundation
 import ObjectMapper
 import SwifterSwift
 
-public protocol ModelType: Mappable, Identifiable, Codable, Equatable, CustomStringConvertible, CustomDebugStringConvertible {
+public protocol ModelType: Mappable, Identifiable, Hashable, Codable, Equatable, CustomStringConvertible, CustomDebugStringConvertible {
     var isValid: Bool { get }
     init()
 }
@@ -31,6 +31,10 @@ public extension ModelType {
     var description: String { self.toJSONString() ?? tryString(self.id) ?? "" }
     
     var debugDescription: String { self.toJSONString() ?? tryString(self.id) ?? "" }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(tryString(self.id) ?? "")
+    }
     
     static func == (lhs: Self, rhs: Self) -> Bool { lhs.id == rhs.id }
 
@@ -54,7 +58,7 @@ public protocol ProfileType: ModelType {
     var loginedUser: (any UserType)? { get set }
 }
 
-public struct AnyModel: Identifiable, Equatable {
+public struct AnyModel: Identifiable, Equatable, Hashable {
     
     public let base: any ModelType
 
@@ -62,6 +66,10 @@ public struct AnyModel: Identifiable, Equatable {
     
     public init<Model: ModelType>(_ base: Model) {
         self.base = base
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(base.hashValue)
     }
 
     public static func == (lhs: AnyModel, rhs: AnyModel) -> Bool {
@@ -102,6 +110,10 @@ public struct WrappedModel: ModelType {
     
     public var description: String {
         String.init(describing: self.data)
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 
     enum CodingKeys: String, CodingKey {
