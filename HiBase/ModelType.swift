@@ -9,6 +9,11 @@ import Foundation
 import ObjectMapper
 import SwifterSwift
 
+/// 数据模型的协议
+/// 判断一个模型跟另一个模型是否一样的方法有三种：
+/// 1. 遵循Identifiable，通过id值来判断
+/// 2. 遵循Hashable，通过hashValue来判断
+/// 3. 遵循Equatable，通过==操作符来判断
 public protocol ModelType: Mappable, Identifiable, Hashable, Codable, Equatable, CustomStringConvertible, CustomDebugStringConvertible {
     var isValid: Bool { get }
     init()
@@ -69,7 +74,7 @@ public struct AnyModel: Identifiable, Equatable, Hashable {
     }
     
     public func hash(into hasher: inout Hasher) {
-        hasher.combine(base.hashValue)
+        base.hash(into: &hasher)
     }
 
     public static func == (lhs: AnyModel, rhs: AnyModel) -> Bool {
