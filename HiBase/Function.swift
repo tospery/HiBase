@@ -68,8 +68,24 @@ public func tryString(_ value: Any?) -> String? {
         return bool.string
     } else if let number = value as? NSNumber {
         return number.stringValue
+    } else if let identifiable = value as? (any Identifiable) {
+        return tryString(identifiable.id)
+    } else if let hashable = value as? (any Hashable) {
+        return hashable.hashValue.string
+    } else if let customStringConvertible = value as? CustomStringConvertible {
+        return customStringConvertible.description
+    } else if let nsobject = value as? NSObject {
+        return nsobject.description
+    } else if let array = value as? [Any] {
+        return array.map { tryString($0) ?? "" }.joined(separator: ",")
+    } else if let dictionary = value as? [AnyHashable: Any] {
+        return dictionary.map { key, value in
+            "\(tryString(key) ?? ""): \(tryString(value) ?? "")"
+        }.joined(separator: ",")
+    } else if let optional = value as? Optional<Any> {
+        return tryString(optional as Any)
     }
-    return nil
+    return String.init(describing: value)
 }
 
 public func tryType<T>(value: Any?, type: T.Type) -> T? {

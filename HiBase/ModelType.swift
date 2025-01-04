@@ -114,7 +114,7 @@ public struct WrappedModel: ModelType {
     }
     
     public var description: String {
-        String.init(describing: self.data)
+        tryString(self.data) ?? ""
     }
     
     public func hash(into hasher: inout Hasher) {
