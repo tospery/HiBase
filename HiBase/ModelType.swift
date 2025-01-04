@@ -59,6 +59,7 @@ public protocol UserType: ModelType {
 
 public protocol ProfileType: ModelType {
     var isDark: Bool? { get set }
+    var accentColor: String { get }
     var localization: Localization? { get set }
     var loginedUser: (any UserType)? { get set }
 }
