@@ -69,8 +69,6 @@ public struct Parameter {
     public static let backType              = "backType"
     public static let openType              = "openType"
     public static let navBarStyle           = "navBarStyle"
-    public static let baseApiUrl            = "baseApiUrl"
-    public static let baseWebUrl            = "baseWebUrl"
     public static let primaryColor          = "primaryColor"
     public static let secondaryColor        = "secondaryColor"
     public static let toastMessage          = "toastMessage"
