@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'HiBase'
-  s.version          = '1.0.2'
+  s.version          = '1.1.0'
   s.summary          = 'Base layer.'
   s.description      = <<-DESC
 						Base layer using Swift.
