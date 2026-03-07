@@ -82,9 +82,10 @@ public func tryString(_ value: Any?) -> String? {
         return dictionary.map { key, value in
             "\(tryString(key) ?? ""): \(tryString(value) ?? "")"
         }.joined(separator: ",")
-    } else if let optional = value as? Optional<Any> {
-        return tryString(optional as Any)
     }
+//    else if let optional = value as? Optional<Any> {
+//        return tryString(optional as Any)
+//    }
     return String.init(describing: value)
 }
 

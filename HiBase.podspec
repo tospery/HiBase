@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'HiBase'
-  s.version          = '1.1.0'
+  s.version          = '1.2.0'
   s.summary          = 'Base layer.'
   s.description      = <<-DESC
 						Base layer using Swift.
@@ -12,12 +12,12 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
   s.swift_version = '5.3'
-  s.ios.deployment_target = '13.0'
+  s.ios.deployment_target = '16.0'
   s.frameworks = 'Foundation'
   
   s.source_files = 'HiBase/**/*'
   s.dependency 'ObjectMapper', '~> 4.0'
-  s.dependency 'SwifterSwift/SwiftStdlib', '~> 6.0'
-  s.dependency 'SwifterSwift/Foundation', '~> 6.0'
+  s.dependency 'SwifterSwift/SwiftStdlib', '~> 8.0'
+  s.dependency 'SwifterSwift/Foundation', '~> 8.0'
   
 end

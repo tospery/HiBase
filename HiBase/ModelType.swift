@@ -42,13 +42,13 @@ public extension ModelType {
     
     var debugDescription: String { self.toJSONString() ?? tryString(self.id) ?? "" }
     
-    public func hash(into hasher: inout Hasher) {
+    func hash(into hasher: inout Hasher) {
         hasher.combine(tryString(self.id) ?? "")
     }
     
     static func == (lhs: Self, rhs: Self) -> Bool { lhs.id == rhs.id }
 
-    public func isEqual(to other: any ModelType) -> Bool {
+    func isEqual(to other: any ModelType) -> Bool {
         guard let otherModel = other as? Self else {
             return false
         }
