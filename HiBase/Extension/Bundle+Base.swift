@@ -16,30 +16,9 @@ public extension Bundle {
     var version: String { object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "" }
     var buildNumber: String { object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String ?? "" }
     
-    var appHosts: [String: String] { infoDictionary?["appHosts"] as? [String: String] ?? [:] }
-    var baseApiUrl: String {
-        var base = tryString(appHosts["api"]) ?? ""
-        if base.isEmpty {
-            base = "https://api.\(self.urlScheme() ?? "app").com"
-        }
-        return base
-    }
-    
-    var baseWebUrl: String {
-        var base = tryString(appHosts["web"]) ?? ""
-        if base.isEmpty {
-            base = "https://\(self.urlScheme() ?? "app").com"
-        }
-        return base
-    }
-    
-    var baseUnivLink: String {
-        var base = tryString(appHosts["univ"]) ?? ""
-        if base.isEmpty {
-            base = "https://\(self.urlScheme() ?? "app").com"
-        }
-        return base
-    }
+    var baseApiUrl: String { "https://api.\(self.urlScheme() ?? "app").com" }
+    var baseWebUrl: String { "https://m.\(self.urlScheme() ?? "app").com" }
+    // var baseUnivLink: String { "https://\(self.urlScheme() ?? "app").com" }
     
     var team: String {
         let query = [

@@ -88,6 +88,7 @@ public struct Parameter {
     public static let navPath               = "_nav_path"
     public static let navContext            = "_nav_context"
     public static let navObserver           = "_nav_observer"
+    public static let navFromWeb            = "_nav_fromweb"
     public static let navForceWeb           = "_nav_forceweb"
     public static let navNeedLogin          = "_nav_needlogin"
     public static let navTimestamp          = "_nav_timestamp"
