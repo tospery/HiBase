@@ -19,5 +19,4 @@ Pod::Spec.new do |s|
   s.dependency 'ObjectMapper', '~> 4.0'
   s.dependency 'SwifterSwift/SwiftStdlib', '~> 8.0'
   s.dependency 'SwifterSwift/Foundation', '~> 8.0'
-  
 end
