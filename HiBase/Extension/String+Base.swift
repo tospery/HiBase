@@ -16,19 +16,19 @@ public extension String {
     
     var localizedStringKey: LocalizedStringKey { .init(self) }
     
-    var isNil: Bool { isEmpty || self == "-" }
+    var isEmptyOrDash: Bool { isEmpty || self == "-" }
     
     var isNotEmpty: Bool { !isEmpty }
     
     var safeDouble: Double? {
-        if self.isNil {
+        if self.isEmptyOrDash {
             return nil
         }
         return Double(self)
     }
     
     var safeInt: Int? {
-        if self.isNil {
+        if self.isEmptyOrDash {
             return nil
         }
         if let int = self.int {
@@ -40,7 +40,7 @@ public extension String {
     }
     
     var safeBool: Bool? {
-        if self.isNil {
+        if self.isEmptyOrDash {
             return nil
         }
         return self.bool
