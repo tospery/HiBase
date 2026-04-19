@@ -16,9 +16,27 @@ public extension Bundle {
     var version: String { object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "" }
     var buildNumber: String { object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String ?? "" }
     
-    var baseApiUrl: String { "https://api.\(self.urlScheme() ?? "app").com" }
-    var baseWebUrl: String { "https://m.\(self.urlScheme() ?? "app").com" }
-    // var baseUnivLink: String { "https://\(self.urlScheme() ?? "app").com" }
+    private static var _baseApiUrl: String?
+    var baseApiUrl: String {
+        if Bundle._baseApiUrl?.isNotEmpty ?? false {
+            return Bundle._baseApiUrl!
+        }
+        let dict = infoDictionary?["HiBaseURLs"] as? [String: String] ?? [:]
+        let base = tryString(dict["api"]) ?? ""
+        Bundle._baseApiUrl = base.isEmpty ? "https://api.\(self.urlScheme() ?? "app").com" : base
+        return Bundle._baseApiUrl!
+    }
+
+    private static var _baseWebUrl: String?
+    var baseWebUrl: String {
+        if Bundle._baseWebUrl?.isNotEmpty ?? false {
+            return Bundle._baseWebUrl!
+        }
+        let dict = infoDictionary?["HiBaseURLs"] as? [String: String] ?? [:]
+        let base = tryString(dict["web"]) ?? ""
+        Bundle._baseWebUrl = base.isEmpty ? "https://m.\(self.urlScheme() ?? "app").com" : base
+        return Bundle._baseWebUrl!
+    }
     
     var team: String {
         let query = [
@@ -57,5 +75,6 @@ public extension Bundle {
         }
         return scheme
     }
+    
     
 }
