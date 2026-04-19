@@ -62,12 +62,12 @@ public protocol UserType: ModelType {
     var avatar: String? { get }
 }
 
-public protocol PreferenceType: ModelType {
-    var isDark: Bool? { get set }
-    var accentColor: String { get }
-    var localization: Localization? { get set }
-    var loginedUser: (any UserType)? { get set }
-}
+//public protocol PreferenceType: ModelType {
+//    var isDark: Bool? { get set }
+//    var accentColor: String { get }
+//    var localization: Localization? { get set }
+//    var loginedUser: (any UserType)? { get set }
+//}
 
 public struct AnyModel: Identifiable, Equatable, Hashable {
     

@@ -6,9 +6,13 @@
 //
 
 import Foundation
+import SwifterSwift
 
 public extension Optional {
-
     var isNil: Bool { self == nil }
+}
 
+extension Optional: OptionalType {
+    /// Cast `Optional<Wrapped>` to `Wrapped?`
+    public var value: Wrapped? { self }
 }
