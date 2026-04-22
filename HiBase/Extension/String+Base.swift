@@ -92,4 +92,18 @@ public extension String {
         return "mailto:\(self)"
     }
     
+    func replacingIfEmpty(_ replaces: [String]) -> String {
+        if self.isNotEmpty {
+            return self
+        }
+        var result = self
+        for replace in replaces {
+            result = replace
+            if result.isNotEmpty {
+                break
+            }
+        }
+        return result
+    }
+    
 }
