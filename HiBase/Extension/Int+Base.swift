@@ -13,4 +13,8 @@ public extension Int {
         return self != 0
     }
     
+    var isZero: Bool {
+        return self == 0
+    }
+    
 }
