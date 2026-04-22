@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import ObjectMapper
+import HiMapper
 
 
 fileprivate extension DateFormatter {

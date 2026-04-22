@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import ObjectMapper
+import HiMapper
 
 public extension Array where Element: BaseMappable {
     

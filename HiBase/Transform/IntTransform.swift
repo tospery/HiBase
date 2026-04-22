@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import ObjectMapper
+import HiMapper
 
 /// Transforms value of type Any to Int. Tries to typecast if possible.
 public class IntTransform: TransformType {

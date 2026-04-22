@@ -5,7 +5,7 @@
 //  Created by 杨建祥 on 2024/5/13.
 //
 
-import ObjectMapper
+import HiMapper
 
 /// Transforms value of type Any to RawRepresentable enum. Tries to typecast if possible.
 public class EnumTypeCastTransform<T: RawRepresentable>: TransformType {

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import ObjectMapper
+import HiMapper
 import SwifterSwift
 
 /// 数据模型的协议

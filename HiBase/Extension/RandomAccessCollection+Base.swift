@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import ObjectMapper
+import HiMapper
 
 // ******************************* MARK: - [[BaseMappable]]
 public extension RandomAccessCollection where Element: RandomAccessCollection, Element.Element: BaseMappable {

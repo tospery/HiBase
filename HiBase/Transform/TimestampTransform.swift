@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import ObjectMapper
+import HiMapper
 
 
 /// Transforms UNIX timestamp (aka POSIX timestamp or epoch) to/from Date.

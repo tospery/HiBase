@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import ObjectMapper
+import HiMapper
 
 // ******************************* MARK: - From data
 public extension ImmutableMappable {

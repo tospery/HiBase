@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import ObjectMapper
+import HiMapper
 import SwifterSwift
 
 /// Transforms value of type Any to Bool. Tries to typecast if possible.
