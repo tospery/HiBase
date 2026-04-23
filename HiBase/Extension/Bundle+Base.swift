@@ -38,6 +38,26 @@ public extension Bundle {
         return Bundle._baseWebUrl!
     }
     
+    private static var _defaultPageStart: Int?
+    var defaultPageStart: Int {
+        if Bundle._defaultPageStart != nil {
+            return Bundle._defaultPageStart!
+        }
+        let dict = infoDictionary?["HiDefaultPaging"] as? [String: Int] ?? [:]
+        Bundle._defaultPageStart = tryInt(dict["start"]) ?? 0
+        return Bundle._defaultPageStart!
+    }
+    
+    private static var _defaultPageSize: Int?
+    var defaultPageSize: Int {
+        if Bundle._defaultPageSize != nil {
+            return Bundle._defaultPageSize!
+        }
+        let dict = infoDictionary?["HiDefaultPaging"] as? [String: Int] ?? [:]
+        Bundle._defaultPageSize = tryInt(dict["size"]) ?? 20
+        return Bundle._defaultPageSize!
+    }
+    
     var team: String {
         let query = [
             kSecClass as NSString: kSecClassGenericPassword as NSString,
