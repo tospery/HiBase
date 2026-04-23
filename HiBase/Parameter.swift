@@ -34,6 +34,7 @@ public struct Parameter {
     public static let style                 = "style"
     public static let error                 = "error"
     public static let frame                 = "frame"
+    public static let accept                = "Accept"
     public static let native                = "native"
     public static let cancel                = "cancel"
     public static let result                = "result"
