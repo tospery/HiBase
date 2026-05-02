@@ -16,6 +16,7 @@ import SwifterSwift
 /// 3. 遵循Equatable，通过==操作符来判断
 public protocol ModelType: Mappable, Identifiable, Hashable, Codable, Equatable, CustomStringConvertible, CustomDebugStringConvertible {
     var isValid: Bool { get }
+    var isDefault: Bool { get }
     var base64String: String { get }
     init()
 }
@@ -32,6 +33,10 @@ public extension ModelType {
             return true
         }
         return false
+    }
+    
+    var isDefault: Bool {
+        (tryString(self.id) ?? "") == HiBase.Parameter.default
     }
     
     var base64String: String {
