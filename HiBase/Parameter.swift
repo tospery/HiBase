@@ -83,7 +83,7 @@ public struct Parameter {
     public static let hidesNavigationBar    = "hidesNavigationBar"
     public static let hidesNavBottomLine    = "hidesNavBottomLine"
     public static let isDark                = "_hibase_isDark"
-    public static let accentColor           = "_hibase_accentColor"
+    public static let tintColor             = "_hibase_tintColor"
     public static let accessToken           = "_hibase_accessToken"
     public static let latestVersion         = "_hibase_latestVersion"
     public static let navUrl                = "_nav_url"

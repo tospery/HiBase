@@ -16,9 +16,9 @@ final public class Appdata: ObservableObject, CustomStringConvertible {
         }
     }
     
-    @Published public var accentColor: String? {
+    @Published public var tintColor: String? {
         didSet {
-            UserDefaults.standard.set(accentColor, forKey: Parameter.accentColor)
+            UserDefaults.standard.set(tintColor, forKey: Parameter.tintColor)
         }
     }
     
@@ -40,13 +40,13 @@ final public class Appdata: ObservableObject, CustomStringConvertible {
     
     public init() {
         self.isDark = UserDefaults.standard.bool(forKey: Parameter.isDark)
-        self.accentColor = UserDefaults.standard.string(forKey: Parameter.accentColor)
+        self.tintColor = UserDefaults.standard.string(forKey: Parameter.tintColor)
         self.accessToken = UserDefaults.standard.string(forKey: Parameter.accessToken)
         self.latestVersion = UserDefaults.standard.string(forKey: Parameter.latestVersion)
     }
 
     public var description: String {
-        "isDark: \(self.isDark), accentColor: \(self.accentColor), accessToken: \(self.accessToken), latestVersion: \(self.latestVersion)"
+        "isDark: \(self.isDark), tintColor: \(self.tintColor), accessToken: \(self.accessToken), latestVersion: \(self.latestVersion)"
     }
     
 }
