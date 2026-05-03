@@ -6,29 +6,28 @@
 //
 
 import Foundation
-import Combine
 
-final public class Appdata: ObservableObject, CustomStringConvertible {
+final public class Appdata: CustomStringConvertible {
     
-    @Published public var isDark: Bool {
+    public var isDark: Bool {
         didSet {
             UserDefaults.standard.set(isDark, forKey: Parameter.isDark)
         }
     }
     
-    @Published public var tintColor: String? {
+    public var tintColor: String? {
         didSet {
             UserDefaults.standard.set(tintColor, forKey: Parameter.tintColor)
         }
     }
     
-    @Published public var latestVersion: String? {
+    public var latestVersion: String? {
         didSet {
             UserDefaults.standard.set(latestVersion, forKey: Parameter.latestVersion)
         }
     }
     
-    @Published public var accessToken: String? {
+    public var accessToken: String? {
         didSet {
             UserDefaults.standard.set(accessToken, forKey: Parameter.accessToken)
         }
