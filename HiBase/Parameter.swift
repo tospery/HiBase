@@ -67,6 +67,7 @@ public struct Parameter {
     public static let forwardType           = "forwardType"
     public static let backType              = "backType"
     public static let openType              = "openType"
+    public static let redirect              = "redirect"
     public static let navBarStyle           = "navBarStyle"
     public static let primaryColor          = "primaryColor"
     public static let secondaryColor        = "secondaryColor"
