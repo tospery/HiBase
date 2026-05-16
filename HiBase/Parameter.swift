@@ -83,10 +83,6 @@ public struct Parameter {
     public static let transparetNavBar      = "transparetNavBar"
     public static let hidesNavigationBar    = "hidesNavigationBar"
     public static let hidesNavBottomLine    = "hidesNavBottomLine"
-    public static let isDark                = "_hibase_isDark"
-    public static let tintColor             = "_hibase_tintColor"
-    public static let accessToken           = "_hibase_accessToken"
-    public static let latestVersion         = "_hibase_latestVersion"
     public static let navUrl                = "_nav_url"
     public static let navHost               = "_nav_host"
     public static let navPath               = "_nav_path"
@@ -98,5 +94,11 @@ public struct Parameter {
     public static let navNeedLogin          = "_nav_needlogin"
     public static let navTimestamp          = "_nav_timestamp"
     public static let navCurrentUser        = "_nav_currentuser"
-
+    
+    internal static let dataIsDark           = "_data_isDark"
+    internal static let dataTintColor        = "_data_tintColor"
+    internal static let dataAccessToken      = "_data_accessToken"
+    internal static let dataLatestVersion    = "_data_latestVersion"
+    internal static let dataUserId           = "_data_accessToken"
+    internal static let dataUserName         = "_data_accessToken"
 }

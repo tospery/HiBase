@@ -11,25 +11,37 @@ final public class Appdata: CustomStringConvertible {
     
     public var isDark: Bool {
         didSet {
-            UserDefaults.standard.set(isDark, forKey: Parameter.isDark)
+            UserDefaults.standard.set(isDark, forKey: Parameter.dataIsDark)
         }
     }
     
     public var tintColor: String? {
         didSet {
-            UserDefaults.standard.set(tintColor, forKey: Parameter.tintColor)
+            UserDefaults.standard.set(tintColor, forKey: Parameter.dataTintColor)
         }
     }
     
     public var latestVersion: String? {
         didSet {
-            UserDefaults.standard.set(latestVersion, forKey: Parameter.latestVersion)
+            UserDefaults.standard.set(latestVersion, forKey: Parameter.dataLatestVersion)
+        }
+    }
+    
+    public var userId: String? {
+        didSet {
+            UserDefaults.standard.set(userId, forKey: Parameter.dataUserId)
+        }
+    }
+    
+    public var userName: String? {
+        didSet {
+            UserDefaults.standard.set(userName, forKey: Parameter.dataUserName)
         }
     }
     
     public var accessToken: String? {
         didSet {
-            UserDefaults.standard.set(accessToken, forKey: Parameter.accessToken)
+            UserDefaults.standard.set(accessToken, forKey: Parameter.dataAccessToken)
         }
     }
     
@@ -38,10 +50,12 @@ final public class Appdata: CustomStringConvertible {
     public static var shared = Appdata()
     
     public init() {
-        self.isDark = UserDefaults.standard.bool(forKey: Parameter.isDark)
-        self.tintColor = UserDefaults.standard.string(forKey: Parameter.tintColor)
-        self.accessToken = UserDefaults.standard.string(forKey: Parameter.accessToken)
-        self.latestVersion = UserDefaults.standard.string(forKey: Parameter.latestVersion)
+        self.isDark = UserDefaults.standard.bool(forKey: Parameter.dataIsDark)
+        self.tintColor = UserDefaults.standard.string(forKey: Parameter.dataTintColor)
+        self.latestVersion = UserDefaults.standard.string(forKey: Parameter.dataLatestVersion)
+        self.userId = UserDefaults.standard.string(forKey: Parameter.dataUserId)
+        self.userName = UserDefaults.standard.string(forKey: Parameter.dataUserName)
+        self.accessToken = UserDefaults.standard.string(forKey: Parameter.dataAccessToken)
     }
 
     public var description: String {
